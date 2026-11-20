@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Valaak's — Aim Trainer</title>
+<meta name="description" content="Valaak's: a browser aim trainer with tactical-shooter sensitivity, weapons, recoil and peeking.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230f1923'/%3E%3Ccircle cx='16' cy='16' r='8' fill='none' stroke='%23ff4655' stroke-width='2.5'/%3E%3Cpath d='M16 3v7M16 22v7M3 16h7M22 16h7' stroke='%23ece8e1' stroke-width='2.5'/%3E%3C/svg%3E">
+<script>if (location.protocol === 'file:') location.replace('index.offline.html' + location.search);</script>
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+} }
+</script>
+</head>
+<body>
+<canvas id="game"></canvas>
+<canvas id="scope"></canvas>
+<canvas id="crosshair"></canvas>
+<canvas id="overlay"></canvas>
+
+<div id="hud" class="hidden">
+  <div id="hud-mode"></div>
+  <div id="hud-top">
+    <div id="hud-score"><span class="sc-you">YOU <b id="sc-you">0</b></span><div id="hud-timer">0:00</div><span class="sc-bot"><b id="sc-bot">0</b> BOT</span></div>
+    <div id="hud-round"></div>
+    <div id="hud-line"><span><b id="hud-kills">0</b> kills</span><span><b id="hud-acc">0%</b> acc</span><span><b id="hud-hs">0%</b> HS</span></div>
+  </div>
+  <div id="hud-fps"></div>
+  <div id="hud-warning" class="hidden"></div>
+  <div id="hs-flash">HEADSHOT</div>
+  <div id="hp"><div class="hp-row"><span id="hp-num">150</span><span class="hp-lbl">HP</span></div><div id="hp-bar"><div id="hp-fill"></div></div></div>
+  <div id="banner" class="hidden"><div id="banner-t"></div><div id="banner-s"></div></div>
+  <div id="ammo">
+    <div class="ammo-row"><span id="ammo-count">25</span><span class="ammo-res">/ ∞</span></div>
+    <div class="ammo-meta"><span id="ammo-gun">Vandal</span><span id="ammo-mode">AUTO</span><span id="ammo-zoom"></span></div>
+    <div id="reload-bar"><div id="reload-fill"></div><span id="reload-text"></span></div>
+  </div>
+</div>
+
+<div id="countdown" class="hidden"></div>
+<div id="hurt"></div>
+<div id="dead" class="hidden"></div>
+<div id="resume-click" class="hidden"><div>Click to resume</div><small>The browser needs a click to lock the mouse again.</small></div>
+<div id="loading">Loading…</div>
+
+<div id="screens">
+  <section id="scr-menu" class="screen"></section>
+  <section id="scr-weapons" class="screen"></section>
+  <section id="scr-settings" class="screen"></section>
+  <section id="scr-pause" class="screen"></section>
+  <section id="scr-results" class="screen"></section>
+  <section id="scr-stats" class="screen"></section>
+  <section id="scr-spray" class="screen"></section>
+  <section id="scr-selftest" class="screen"></section>
+</div>
+<div id="dropzone" class="hidden">Drop image to use as crosshair</div>
+
+<noscript>Valaak's needs JavaScript and WebGL.</noscript>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
